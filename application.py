@@ -8,8 +8,7 @@ import json
 
 app = Flask(__name__)
 
-#uncomment engine while run
-#engine = create_engine('postgres://gzpdseeqgilgmc:f8612aed7a618933700c870247c15f70961b0a366796095091c46b8be75790b8@ec2-107-21-99-237.compute-1.amazonaws.com:5432/dasmon190o3648', echo = True)
+engine = create_engine('postgres://gzpdseeqgilgmc:f8612aed7a618933700c870247c15f70961b0a366796095091c46b8be75790b8@ec2-107-21-99-237.compute-1.amazonaws.com:5432/dasmon190o3648', echo = True)
 db = scoped_session(sessionmaker(bind=engine))
 
 # Configure session to use filesystem
@@ -132,8 +131,9 @@ def submit_data():
         import numpy as np
         import matplotlib.pyplot as plt
 
-        return render_template("external-page/injury_recover.html", data=ans*7)
         
+
+        return render_template("external-page/injury_recover.html", data=ans*7)
 
 @app.route('/certificate')
 def certificate():
